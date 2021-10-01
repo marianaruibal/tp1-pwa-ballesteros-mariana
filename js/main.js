@@ -332,6 +332,6 @@ function initMap(latitud, longitud) {
     let divMapa = document.getElementById('map');
     let mapa = document.createElement('iframe');           
     divMapa.appendChild(mapa);
-    mapa.src=`${URL_MAPS}weather?MAP_MODE?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`;
+    mapa.src=`${URL_MAPS}MAP_MODE?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`;
 
 }
