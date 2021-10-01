@@ -204,7 +204,7 @@ video{
 #map {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
+    border-radius: 20%;
     margin: auto;
 }
 @media screen and (max-width:  577px){

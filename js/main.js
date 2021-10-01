@@ -1,5 +1,7 @@
 const API_KEY = "acf746ea033e5d0888fc1cbd6d8db285";
+const API_KEY_MAPS = "AIzaSyANQ9-ituWGd3sszSfuOuaT2fUEDwrmlKM&v";
 const URL = "https://api.openweathermap.org/data/2.5/";
+const URL_MAPS = "https://www.google.com/maps/embed/v1/";
 
 
 const button = document.getElementById('enviar')
@@ -322,12 +324,37 @@ function guardarLocal(datos){
     localStorage.setItem('ciudad', JSON.stringify(datos.name));
 }
 
-let map;
 
 function initMap(latitud, longitud) {
+    
     console.log(latitud, longitud);
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: latitud, lng: longitud },
-        zoom: 8,
-    });
+
+    let divMapa = document.getElementById('map');
+    let mapa = document.createElement('iframe');           
+    divMapa.appendChild(mapa);
+    mapa.setAttribute('frameborder', '0');
+    mapa.setAttribute('style', 'borde:0');
+    mapa.setAttribute('width', '450');
+    mapa.setAttribute('width', '250');
+    mapa.src=`${URL_MAPS}weather?MAP_MODE?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`;
+/*
+    fetch(`${URL_MAPS}weather?MAP_MODE?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`)
+         .then(response => {
+
+             //console.log(response);
+             return response.json();
+
+         }).then(responseJson => {
+
+             clima(responseJson);
+             guardarLocal(responseJson);
+             console.log(responseJson.coord.lat, responseJson.coord.lon)
+             initMap(responseJson.coord.lat, responseJson.coord.lon);
+
+         }).catch(error => {
+
+            console.log('Ha surgido un error: ', error);
+     });
+    MAP_MODE?key=YOUR_API_KEY&PARAMETERS*/
+
 }
