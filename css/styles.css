@@ -201,12 +201,18 @@ video{
     z-index: -1;
 }
 
-#map {
+#map{
+    text-align: center;
+    margin-top: 0px;
+}
+
+#map iframe{
     width: 200px;
     height: 200px;
     border-radius: 20%;
-    margin: auto;
+
 }
+
 @media screen and (max-width:  577px){
     input{
         width: 90%;

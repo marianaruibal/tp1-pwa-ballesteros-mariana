@@ -332,29 +332,6 @@ function initMap(latitud, longitud) {
     let divMapa = document.getElementById('map');
     let mapa = document.createElement('iframe');           
     divMapa.appendChild(mapa);
-    mapa.setAttribute('frameborder', '0');
-    mapa.setAttribute('style', 'borde:0');
-    mapa.setAttribute('width', '450');
-    mapa.setAttribute('width', '250');
     mapa.src=`${URL_MAPS}weather?MAP_MODE?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`;
-/*
-    fetch(`${URL_MAPS}weather?MAP_MODE?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`)
-         .then(response => {
-
-             //console.log(response);
-             return response.json();
-
-         }).then(responseJson => {
-
-             clima(responseJson);
-             guardarLocal(responseJson);
-             console.log(responseJson.coord.lat, responseJson.coord.lon)
-             initMap(responseJson.coord.lat, responseJson.coord.lon);
-
-         }).catch(error => {
-
-            console.log('Ha surgido un error: ', error);
-     });
-    MAP_MODE?key=YOUR_API_KEY&PARAMETERS*/
 
 }
