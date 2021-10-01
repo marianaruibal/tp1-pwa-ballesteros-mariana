@@ -1,5 +1,5 @@
 const API_KEY = "acf746ea033e5d0888fc1cbd6d8db285";
-const API_KEY_MAPS = "AIzaSyANQ9-ituWGd3sszSfuOuaT2fUEDwrmlKM&v";
+const API_KEY_MAPS = "AIzaSyAdBnboH4EknMNF824PB31P130nYRbYQEM";
 const URL = "https://api.openweathermap.org/data/2.5/";
 const URL_MAPS = "https://www.google.com/maps/embed/v1/";
 
@@ -332,6 +332,6 @@ function initMap(latitud, longitud) {
     let divMapa = document.getElementById('map');
     let mapa = document.createElement('iframe');           
     divMapa.appendChild(mapa);
-    mapa.src=`${URL_MAPS}MAP_MODE?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`;
+    mapa.src=`${URL_MAPS}view?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`;
 
 }
