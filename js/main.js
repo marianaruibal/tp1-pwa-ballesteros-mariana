@@ -5,7 +5,16 @@ const URL = "https://api.openweathermap.org/data/2.5/";
 const button = document.getElementById('enviar')
 const inputValor = document.getElementById('busqueda');
 
-byDefault();
+const ultimaCiudadBuscada = JSON.parse(localStorage.getItem("ciudad"));
+
+    console.log(ultimaCiudadBuscada);
+
+if(ultimaCiudadBuscada == null){
+    byDefault();
+}else{
+    buscarCiudad(ultimaCiudadBuscada);
+}
+
 
 button.addEventListener('click', ()=>{
 
@@ -29,6 +38,9 @@ function buscarCiudad(ciudad){
          }).then(responseJson => {
 
              clima(responseJson);
+             guardarLocal(responseJson);
+             console.log(responseJson.coord.lat, responseJson.coord.lon)
+             initMap(responseJson.coord.lat, responseJson.coord.lon);
 
          }).catch(error => {
 
@@ -37,9 +49,6 @@ function buscarCiudad(ciudad){
 }
 
 function clima(datos){
-
-
-
     const h2 = document.querySelector('#weather h2');
     const pDescrip = document.querySelector('#temp div:last-of-type p:last-of-type');
     const img = document.querySelector('#temp div img');
@@ -181,7 +190,7 @@ function clima(datos){
             divVideo.appendChild(video);
 
             let source = document.createElement('source');
-            source.src="img/dia-nublado.mp4";
+            source.src="img/dia-niebla.mp4";
             source.type="video/mp4";
             video.appendChild(source);
 
@@ -214,7 +223,7 @@ function clima(datos){
             divVideo.appendChild(video);
 
             let source = document.createElement('source');
-            source.src="img/cloudy-moon.mp4";
+            source.src="img/nublado.mp4";
             source.type="video/mp4";
 
             video.appendChild(source);
@@ -240,16 +249,16 @@ function clima(datos){
             img.src='img/lluvia.png';
             img.alt='Nube de lluvia';
 
-            /*let video = document.createElement('video');
+            let video = document.createElement('video');
             video.autoplay = true;
             video.muted = true;
             video.loop = true;
             divVideo.appendChild(video);
 
             let source = document.createElement('source');
-            source.src="img/cloudy-moon.mp4";
+            source.src="img/nublado.mp4";
             source.type="video/mp4";
-            video.appendChild(source);*/
+            video.appendChild(source);
 
         }else if(datos.weather[0].id >= 200 && datos.weather[0].id <= 202 || datos.weather[0].id >= 210 && datos.weather[0].id <= 212 || datos.weather[0].id === 221 || datos.weather[0].id >= 230 && datos.weather[0].id <= 232){
             img.src='img/tormenta.png';
@@ -292,14 +301,14 @@ function clima(datos){
             divVideo.appendChild(video);
 
             let source = document.createElement('source');
-            source.src="img/cloudy-moon.mp4";
+            source.src="img/luna-niebla.mp4";
             source.type="video/mp4";
             video.appendChild(source);
 
         }
     }
 
-    tempe.innerHTML = `${datos.main.temp}° C` ;
+    tempe.innerHTML = `${datos.main.temp}°C` ;
 
     allspan[0].innerHTML = `${datos.main.temp_max}° C`;
     allspan[1].innerHTML = `${datos.main.temp_min}° C`;
@@ -307,4 +316,18 @@ function clima(datos){
     allspan[3].innerHTML = `${datos.main.humidity}%`;
     allspan[4].innerHTML = `${datos.main.pressure} hPa`;
     allspan[5].innerHTML = `${datos.wind.speed}m/s`;
+}
+
+function guardarLocal(datos){
+    localStorage.setItem('ciudad', JSON.stringify(datos.name));
+}
+
+let map;
+
+function initMap(latitud, longitud) {
+    console.log(latitud, longitud);
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: latitud, lng: longitud },
+        zoom: 8,
+    });
 }
