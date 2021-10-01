@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <title>Ballesteros Ruibal, Mariana Montserrat - Cátedra PWA</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
+</head>
+<body>
+    <section>
+        <h1>Clima según tu ciudad</h1>
+
+        <form id="contact-form">
+
+            <label for="busqueda">Busqueda según ciudad:</label>
+            <input title="ciudad" id="busqueda" type="text" placeholder="Buscar por ciudad" required />
+
+            <button id="enviar" type="button" class="btn btn-primary">Buscar</button>
+        </form>
+        <div>
+            <div id="weather">
+                <h2>Ciudad</h2>
+                <div id="temp">
+                    <div>
+                        <img src="img/soleado.png" alt="">
+                    </div>
+                    <div >
+                        <p>Temperatura</p>
+                        <p>Descripción</p>
+                    </div>
+                </div>
+
+                <!--<video muted autoplay loop>
+                    <source src="" type="video/mp4"/>
+                </video>-->
+            </div>
+
+            <div id="data">
+                <ul>
+                    <li><span></span>Temp. Máx. <span></span></li>
+                    <li><span></span>Temp. Min. <span></span></li>
+                    <li><span></span>Sensación térmica <span></span></li>
+                    <li><span></span>Húmedad <span></span></li>
+                    <li><span></span>Presión atmosférica <span></span></li>
+                    <li><span></span>Velocidad del viento <span></span></li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+<script src="js/main.js"></script>
+</html>

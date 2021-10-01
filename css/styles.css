@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to bottom, #262626, #9AD5FF) fixed;
+    color: white;
+}
+section{
+    margin-top: 2em;
+}
+h1{
+    text-align: center;
+    margin-bottom: 1em;
+}
+#weather{
+    width: 60%;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(38, 38, 38, .6);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #292929;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+section>div{
+    margin-top: 2em;
+
+}
+h2{
+    font-size: 25px;
+    text-align: center;
+    margin-right: 2em;
+}
+
+#temp {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1em;
+
+}
+
+#temp div:last-of-type p{
+    text-align: center;
+}
+
+#temp div:last-of-type p:first-of-type{
+    font-size: 45px;
+}
+
+#temp div:last-of-type p:last-of-type, #temp div:first-of-type p{
+    font-size: 25px;
+}
+
+#data{
+    width: 100%;
+}
+label{
+    font-size: 0px;
+}
+
+input{
+    width: 50%;
+    height:30px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 6px #ccc inset;
+    border: 1px solid #ccc;
+    color: gray;
+    padding-left: 1em;
+}
+
+form{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 4em;
+
+}
+input:focus{
+    margin: 0px auto;
+    outline: none;
+    color: #555;
+}
+
+button{
+
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background: linear-gradient(to bottom, #3eb8e5 0%, #3c91e6 100%);
+    border: 1px solid #156785;
+    border-radious: 0px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: TrebuchetMS;
+    font-weight: lighter;
+}
+
+#data ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+#data li{
+    width: 100px;
+    background-color: rgba(79, 79, 79, 0.5);
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px #ffffff;
+    margin: 0em 1em 0em 1em;
+    padding: 0em 1em 1em 1em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#data li span{
+    display: inline-block;
+    text-align: center;
+}
+#data ul li> span:first-of-type{
+    background-color: #f18825;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    border-radius: 50px;
+    margin-top: -1em;
+    margin-bottom: .3em;
+    box-shadow: 0px 3px 3px #4f4f4f;
+}
+
+#data ul li:first-of-type > span:first-of-type {
+    background-image: url("../img/t-max-ico.png");
+    height: 40px;
+    text-align: center;
+}
+
+#data ul li:nth-of-type(2) > span:first-of-type {
+    background-image: url("../img/t-min-ico.png");
+    height: 40px;
+}
+
+#data ul li:nth-of-type(3) > span:first-of-type {
+    background-image: url("../img/feels-like-ico.png");
+    height: 40px;
+}
+
+
+#data ul li:nth-of-type(4) > span:first-of-type {
+    background-image: url("../img/humedad.png");
+    height: 40px;
+}
+#data ul li:nth-of-type(4){
+    height: 108px;
+}
+
+#data ul li:nth-of-type(5) > span:first-of-type {
+    background-image: url("../img/presion-at-ico.png");
+    height: 40px;
+}
+
+#data ul li:nth-of-type(6) > span:first-of-type {
+    background-image: url("../img/v-viento-ico.png");
+    height: 40px;
+}
+
+#data ul li> span:last-of-type{
+    margin-top: .3em;
+}
+
+video{
+    position: absolute;
+    top: 0px;
+    min-width: 100vw;
+   min-height: 100vh;
+    z-index: -1;
+}
+@media screen and (max-width:  577px){
+    input{
+        width: 90%;
+    }
+    button{
+        width: 90%;
+        height: 40px;
+    }
+
+    #weather{
+        width: 90%;
+    }
+    h2{
+        margin-right: 0px;
+        margin-bottom: 1em;
+    }
+
+
+}
