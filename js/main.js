@@ -62,6 +62,11 @@ function clima(datos){
 
     if(document.querySelector('#weather video')){
         divVideo.removeChild(document.querySelector('#weather video'));
+    }else if(document.querySelector('#map iframe')){
+        const divMapa = document.getElementById('map');
+        const iframe = document.querySelector('#map iframe');
+
+        divMapa.removeChild(iframe);    
     }
 
 
