@@ -62,11 +62,6 @@ function clima(datos){
 
     if(document.querySelector('#weather video')){
         divVideo.removeChild(document.querySelector('#weather video'));
-    }else if(document.querySelector('#map iframe')){
-        const divMapa = document.getElementById('map');
-        const iframe = document.querySelector('#map iframe');
-
-        divMapa.removeChild(iframe);    
     }
 
 
@@ -334,9 +329,16 @@ function initMap(latitud, longitud) {
     
     console.log(latitud, longitud);
 
+    if(document.querySelector('#map iframe')){
+        const divMapa = document.getElementById('map');
+        const iframe = document.querySelector('#map iframe');
+        divMapa.removeChild(iframe);
+    }
     let divMapa = document.getElementById('map');
-    let mapa = document.createElement('iframe');           
+    let mapa = document.createElement('iframe');
+
+
     divMapa.appendChild(mapa);
-    mapa.src=`${URL_MAPS}view?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10`;
+    mapa.src=`${URL_MAPS}view?key=${API_KEY_MAPS}&center=${latitud},${longitud}&zoom=10&maptype=satellite`;
 
 }
